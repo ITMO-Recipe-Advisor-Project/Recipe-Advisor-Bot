@@ -31,9 +31,9 @@ async def handle_message(message: Message):
             if response.status_code == 200:
                 response_data = response.json()
 
-                if "message" in response_data and "recipes" in response_data["message"]:
+                if "message" in response_data or "recipes" in response_data["message"]:
                     await message.answer(response_data["message"])
-                    for recipe in response_data["recipes"]:
+                    for recipe in response_data.get("recipes", []):
                         await message.answer(recipe)
                 else:
                     await message.answer("The server returned an unexpected response.")
