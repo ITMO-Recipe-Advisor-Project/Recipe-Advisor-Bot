@@ -8,12 +8,12 @@ from app.config import get_config
 
 config = get_config()
 
-BOT_TOKEN = config['BOT_TOKEN']
-API_URL = config['API_URL']
-GIPHY_API_URL = config['GIPHY_API_URL']
-GIPHY_API_KEY = config['GIPHY_API_KEY']
-GIF_QUERY = config['GIF_QUERY']
-REQUEST_TIMEOUT = config['REQUEST_TIMEOUT']
+BOT_TOKEN = config["BOT_TOKEN"]
+API_URL = config["API_URL"]
+GIPHY_API_URL = config["GIPHY_API_URL"]
+GIPHY_API_KEY = config["GIPHY_API_KEY"]
+GIF_QUERY = config["GIF_QUERY"]
+REQUEST_TIMEOUT = config["REQUEST_TIMEOUT"]
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
@@ -24,9 +24,7 @@ gif_urls = []
 
 def create_more_button():
     return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text="More Recipes", callback_data="more_recipes")]
-        ]
+        inline_keyboard=[[InlineKeyboardButton(text="More Recipes", callback_data="more_recipes")]]
     )
 
 
@@ -40,7 +38,7 @@ async def fetch_gifs():
         "offset": 0,
         "rating": "g",
         "lang": "en",
-        "bundle": "messaging_non_clips"
+        "bundle": "messaging_non_clips",
     }
     try:
         async with httpx.AsyncClient() as client:
@@ -59,7 +57,7 @@ async def fetch_gifs():
 async def start_handler(message: Message):
     """Handles the /start command."""
     await message.answer(
-        "Hello! Send me a list of ingredients, and I'll suggest a recipe.",
+        "Hello! Send me a query with the ingredients you'd like, and I'll help you find some recipes.",
     )
 
 
@@ -93,10 +91,7 @@ async def handle_message(message: Message):
                         for recipe in recipes:
                             await message.answer(recipe)
 
-                        await message.answer(
-                            "Would you like to see more recipes?",
-                            reply_markup=create_more_button()
-                        )
+                        await message.answer("Would you like to see more recipes?", reply_markup=create_more_button())
                     else:
                         await message.answer("No recipes found for your query.")
                 else:
@@ -133,8 +128,7 @@ async def more_recipes_callback(callback_query: types.CallbackQuery):
                         for recipe in recipes:
                             await callback_query.message.answer(recipe)
                         await callback_query.message.answer(
-                            "Would you like to see even more recipes?",
-                            reply_markup=create_more_button()
+                            "Would you like to see even more recipes?", reply_markup=create_more_button()
                         )
                     else:
                         await callback_query.message.answer("No more recipes found for your query.")

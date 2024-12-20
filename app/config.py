@@ -1,5 +1,6 @@
 from dotenv import dotenv_values
 
+
 def get_config():
     """
     Loads configuration values from a `.env` file.
@@ -19,5 +20,5 @@ def get_config():
         "GIPHY_API_URL": env_vars["GIPHY_API_URL"],
         "GIPHY_API_KEY": env_vars["GIPHY_API_KEY"],
         "GIF_QUERY": env_vars["GIF_QUERY"],
-        "REQUEST_TIMEOUT": float(env_vars["REQUEST_TIMEOUT"])
+        "REQUEST_TIMEOUT": float(env_vars["REQUEST_TIMEOUT"]),
     }
