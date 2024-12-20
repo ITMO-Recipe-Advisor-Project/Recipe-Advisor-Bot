@@ -56,9 +56,14 @@ async def fetch_gifs():
 @dp.message(Command("start"))
 async def start_handler(message: Message):
     """Handles the /start command."""
-    await message.answer(
-        "Hello! Send me a query with the ingredients you'd like, and I'll help you find some recipes.",
+    warning_message = (
+        "*⚠️ Warning:*\n"
+        "_This bot uses Runpod serverless solution with a cold start to process embedding inference requests based on "
+        "user queries._ As a result, responses might take up to *30 seconds*. This decision was made due to server "
+        "limitations, and we apologize for any inconvenience."
     )
+    await message.reply(warning_message, parse_mode="Markdown")
+    await message.answer("Hello! Send me a query with the ingredients you'd like, and I'll help you find some recipes.")
 
 
 @dp.message()
