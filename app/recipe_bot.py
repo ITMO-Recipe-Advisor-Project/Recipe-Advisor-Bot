@@ -97,8 +97,6 @@ async def handle_message(message: Message):
                             await message.answer(recipe)
 
                         await message.answer("Would you like to see more recipes?", reply_markup=create_more_button())
-                    else:
-                        await message.answer("No recipes found for your query.")
                 else:
                     await message.answer("The server returned an unexpected response.")
             else:
