@@ -58,7 +58,7 @@ async def start_handler(message: Message):
     """Handles the /start command."""
     warning_message = (
         "*⚠️ Warning:*\n"
-        "_The server uses Runpod serverless solution with a cold start to process embedding inference requests based on "
+        "_This bot uses Runpod serverless solution with a cold start to process embedding inference requests based on "
         "user queries._ As a result, responses might take up to *30 seconds*. This decision was made due to server "
         "limitations, and we apologize for any inconvenience."
     )
