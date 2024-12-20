@@ -58,9 +58,9 @@ async def start_handler(message: Message):
     """Handles the /start command."""
     warning_message = (
         "*⚠️ Warning:*\n"
-        "_The server uses Runpod serverless solutions with a cold start for cloud inference of user embedding requests._ "
-        "As a result, responses might take up to *30 seconds*. This decision was made due to server limitations, "
-        "and we apologize for any inconvenience."
+        "_The server uses Runpod serverless solution with a cold start to process embedding inference requests based on "
+        "user queries._ As a result, responses might take up to *30 seconds*. This decision was made due to server "
+        "limitations, and we apologize for any inconvenience."
     )
     await message.reply(warning_message, parse_mode="Markdown")
     await message.answer("Hello! Send me a query with the ingredients you'd like, and I'll help you find some recipes.")
