@@ -37,7 +37,7 @@
 3. Запустите бота:
 
    ```
-      python app/recipe_bot.py   
+      python -m app.recipe_bot
    ```
 
 ---
