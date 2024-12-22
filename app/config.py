@@ -17,6 +17,7 @@ def get_config():
     return {
         "BOT_TOKEN": env_vars["BOT_TOKEN"],
         "API_URL": env_vars["API_URL"],
+        "WARNING_FLAG": bool(env_vars["WARNING_FLAG"]),
         "GIPHY_API_URL": env_vars["GIPHY_API_URL"],
         "GIPHY_API_KEY": env_vars["GIPHY_API_KEY"],
         "GIF_QUERY": env_vars["GIF_QUERY"],
