@@ -14,6 +14,7 @@ GIPHY_API_URL = config["GIPHY_API_URL"]
 GIPHY_API_KEY = config["GIPHY_API_KEY"]
 GIF_QUERY = config["GIF_QUERY"]
 REQUEST_TIMEOUT = config["REQUEST_TIMEOUT"]
+WARNING_FLAG = bool(config["WARNING_FLAG"])
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
@@ -56,13 +57,17 @@ async def fetch_gifs():
 @dp.message(Command("start"))
 async def start_handler(message: Message):
     """Handles the /start command."""
-    warning_message = (
-        "*⚠️ Warning:*\n"
-        "_This bot uses Runpod serverless solution with a cold start to process embedding inference requests based on "
-        "user queries._ As a result, responses might take up to *30 seconds*. This decision was made due to server "
-        "limitations, and we apologize for any inconvenience."
-    )
-    await message.reply(warning_message, parse_mode="Markdown")
+    show_warning = WARNING_FLAG
+
+    if show_warning:
+        warning_message = (
+            "*⚠️ Warning:*\n"
+            "_This bot uses Runpod serverless solution with a cold start to process embedding inference requests based on "
+            "user queries._ As a result, responses might take up to *30 seconds*. This decision was made due to server "
+            "limitations, and we apologize for any inconvenience."
+        )
+        await message.reply(warning_message, parse_mode="Markdown")
+
     await message.answer("Hello! Send me a query with the ingredients you'd like, and I'll help you find some recipes.")
 
 
