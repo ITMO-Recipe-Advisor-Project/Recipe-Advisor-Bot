@@ -22,3 +22,8 @@ services:
     volumes:
       - ./env:/app/env
     restart: unless-stopped
+
+  embedding-service:
+    image: semitechnologies/transformers-inference:sentence-transformers-all-mpnet-base-v2-1.9.7
+    container_name: embedding-service
+    restart: unless-stopped
