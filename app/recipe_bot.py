@@ -14,7 +14,7 @@ GIPHY_API_URL = config["GIPHY_API_URL"]
 GIPHY_API_KEY = config["GIPHY_API_KEY"]
 GIF_QUERY = config["GIF_QUERY"]
 REQUEST_TIMEOUT = config["REQUEST_TIMEOUT"]
-WARNING_FLAG = bool(config["WARNING_FLAG"])
+WARNING_FLAG = config["WARNING_FLAG"]
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
