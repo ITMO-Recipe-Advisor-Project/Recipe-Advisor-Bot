@@ -31,7 +31,7 @@
       GIPHY_API_KEY=<ключ_API_GIPHY>
       GIF_QUERY=chef
       REQUEST_TIMEOUT=10
-      WARNING_FLAG=True
+      WARNING_FLAG=
    ```
 
 3. Запустите бота:
