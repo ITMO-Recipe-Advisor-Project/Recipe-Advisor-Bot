@@ -1,5 +1,6 @@
 from dotenv import dotenv_values
 
+
 def get_config():
     """
     Loads configuration values from a `.env` file.
