@@ -1,6 +1,5 @@
 from dotenv import dotenv_values
 
-
 def get_config():
     """
     Loads configuration values from a `.env` file.
@@ -8,6 +7,7 @@ def get_config():
     :return: A dictionary containing:
              - BOT_TOKEN: Token for authenticating the Telegram bot.
              - API_URL: URL of the recipe processing service.
+             - WARNING_FLAG: Boolean flag to enable or disable warning messages.
              - GIPHY_API_URL: Base URL for the GIPHY API to fetch GIFs.
              - GIPHY_API_KEY: API key for authenticating requests to GIPHY.
              - GIF_QUERY: Search query used to fetch specific GIFs (e.g., 'chef').
